@@ -1,1 +1,2 @@
-dropbox
+dropbox==11.36.0
+ffmpeg-python
