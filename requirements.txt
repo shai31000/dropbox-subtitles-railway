@@ -1,2 +1,2 @@
-dropbox==11.36.0
+requests
 ffmpeg-python
