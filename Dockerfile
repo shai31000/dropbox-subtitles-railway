@@ -1,14 +1,9 @@
-FROM python:3.11
+FROM python:3.10-slim
 
-# התקנת FFmpeg
-RUN apt-get update && apt-get install -y ffmpeg && apt-get clean
-
-# העתקת קבצים
 WORKDIR /app
-COPY . /app
+COPY . .
 
-# התקנת ספריות פייתון
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install -y ffmpeg && \
+    pip install --no-cache-dir -r requirements.txt
 
-# פקודת ההרצה
 CMD ["python", "main.py"]
