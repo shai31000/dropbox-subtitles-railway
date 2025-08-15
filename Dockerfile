@@ -1,14 +1,13 @@
-# שימוש בבסיס קל משקל של Alpine Linux
 FROM alpine:latest
 
-# התקנת הכלים שנצטרך: FFmpeg, curl, Python
-RUN apk add --no-cache ffmpeg curl python3 py3-pip
+# התקנת הכלים הנדרשים
+RUN apk add --no-cache ffmpeg curl python3 py3-pip bash
 
 # הגדרת תיקיית העבודה
 WORKDIR /app
 
-# העתקת כל הקבצים מהמאגר הנוכחי לשרת
+# העתקת הקבצים
 COPY . /app
 
-# הפקודה שתורץ ברגע שהקונטיינר יעלה
-CMD ["python3", "main.py"]
+# הפעלה של הסקריפט עם Bash כדי לראות לוגים בזמן אמת
+CMD ["bash", "-c", "python3 main.py"]
